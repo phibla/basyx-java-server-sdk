@@ -1,0 +1,29 @@
+{{- if .Values.keycloak.apirule.enabled }}
+apiVersion: gateway.kyma-project.io/v2alpha1
+kind: APIRule
+metadata:
+  name: {{ .Values.keycloak.fullnameOverride }}
+spec:
+  gateway: kyma-system/kyma-gateway
+  hosts:
+    - {{ .Values.keycloak.apirule.host }}
+  service:
+    name: {{ .Values.keycloak.fullnameOverride }}
+    port: 80
+  timeout: 360
+  rules:
+    - path: /*
+      methods: {{- toYaml .Values.keycloak.apirule.methods | nindent 6 }}
+      noAuth: true
+  corsPolicy:
+    allowMethods:
+      - POST
+      - GET
+      - PUT
+      - DELETE
+      - PATCH
+      - OPTIONS
+    allowOrigins:
+      - prefix: https://ui.basyx.c-318f5fe.kyma.ondemand.com
+    allowCredentials: true
+{{ end -}}
