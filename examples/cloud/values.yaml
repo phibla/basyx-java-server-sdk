@@ -22,7 +22,7 @@ keycloak:
       database: keycloak
   apirule:
     enabled: true
-    host: keycloak.basyx.c-318f5fe.kyma.ondemand.com
+    host: keycloak.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -76,7 +76,7 @@ aas-registry:
     host: registry.basyx.factory-x.catena-x.net
   apirule:
     enabled: true
-    host: registry.basyx.c-318f5fe.kyma.ondemand.com
+    host: registry.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -110,7 +110,7 @@ sm-registry:
     host: smregistry.basyx.factory-x.catena-x.net
   apirule:
     enabled: true
-    host: smregistry.basyx.c-318f5fe.kyma.ondemand.com
+    host: smregistry.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -155,13 +155,13 @@ aas-discovery:
     basyx.feature.authorization.type = rbac
     basyx.feature.authorization.jwtBearerTokenProvider = keycloak
     basyx.feature.authorization.rbac.file = file:/application/rbac_rules.json
-    spring.security.oauth2.resourceserver.jwt.issuer-uri= http://basyx-keycloak.basyx.svc.cluster.local:8080/realms/BaSyx
+    spring.security.oauth2.resourceserver.jwt.issuer-uri = http://basyx-keycloak.basyx.svc.cluster.local:8080/realms/BaSyx
   ingress:
     enabled: false
     host: discovery.basyx.factory-x.catena-x.net
   apirule:
     enabled: true
-    host: discovery.basyx.c-318f5fe.kyma.ondemand.com
+    host: discovery.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -209,10 +209,10 @@ aas-environment:
     #mqtt.password=password1
   ingress:
     enabled: false
-    host: basyx.factory-x.catena-x.net
+    host: enviroment.basyx.factory-x.catena-x.net
   apirule:
     enabled: true
-    host: enviroment.basyx.c-318f5fe.kyma.ondemand.com
+    host: enviroment.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -235,7 +235,7 @@ aas-web-ui:
     host: ui.basyx.factory-x.catena-x.net
   apirule:
     enabled: true
-    host: ui.basyx.c-318f5fe.kyma.ondemand.com
+    host: ui.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
       - "HEAD" 
@@ -252,7 +252,7 @@ aas-web-ui:
     conceptdescriptionRepoUrl: "aas-environment:8080/concept-descriptions"
     aasRegistryUrl: "aas-registry:8080/api/v3.0"
     submodelRegistryUrl: "sm-registry:8080/api/v3.0"
-    keycloakUrl: https://keycloak.basyx.c-318f5fe.kyma.ondemand.com
+    keycloakUrl: "keycloak-basyx:8080"
     keacloakRealm: BaSyx
     keycloakClientId: basyx-web-ui
   externalPlugins:

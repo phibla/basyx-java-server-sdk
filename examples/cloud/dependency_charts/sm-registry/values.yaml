@@ -38,7 +38,7 @@ config: |
 
 apirule:
   enabled: false
-  host: aas-discovery.local
+  host: sm-registry.local
   methods: 
       - "GET" 
       - "HEAD" 

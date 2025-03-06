@@ -24,8 +24,17 @@ ingress:
 
 apirule:
   enabled: false
-  host: aas-discovery.local
-  methods: [ "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD" ]
+  host: aas-environment.local
+  methods: 
+      - "GET" 
+      - "HEAD" 
+      - "POST" 
+      - "PUT" 
+      - "DELETE" 
+      - "CONNECT" 
+      - "OPTIONS" 
+      - "TRACE"
+      - "PATCH"
 
 config: |
   server.port=8080

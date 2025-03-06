@@ -33,7 +33,7 @@ ingress:
 
 apirule:
   enabled: false
-  host: aas-discovery.local
+  host: aas-web-ui.local
   methods: 
       - "GET" 
       - "HEAD" 

@@ -31,7 +31,7 @@ ingress:
 
 apirule:
   enabled: false
-  host: aas-discovery.local
+  host: aas-registry.local
   methods: 
       - "GET" 
       - "HEAD" 
