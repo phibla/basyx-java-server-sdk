@@ -21,7 +21,7 @@ keycloak:
       password: password
       database: keycloak
   apirule:
-    enabled: false
+    enabled: true
     host: keycloak.basyx.c-318f5fe.kyma.ondemand.com
     methods: 
       - "GET" 

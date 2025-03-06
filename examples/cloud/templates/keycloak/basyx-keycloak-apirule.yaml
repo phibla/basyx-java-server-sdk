@@ -15,6 +15,7 @@ spec:
     - path: /*
       methods: {{- toYaml .Values.keycloak.apirule.methods | nindent 6 }}
       noAuth: true
+  {{- if index .Values "aas-web-ui" "enabled" }}
   corsPolicy:
     allowMethods:
       - POST
@@ -24,6 +25,13 @@ spec:
       - PATCH
       - OPTIONS
     allowOrigins:
-      - prefix: https://ui.basyx.c-318f5fe.kyma.ondemand.com
+      {{- if and (index .Values "aas-web-ui" "ingress" "enabled") (index .Values "aas-web-ui" "apirule" "enabled") }}
+      {{ fail "Both ingress and apirule enabled. Failing the pipeline." }}
+      {{ else if index .Values "aas-web-ui" "ingress" "enabled" }}
+      - prefix: https://{{ index .Values "aas-web-ui" "ingress" "host" }}
+      {{- else if index .Values "aas-web-ui" "apirule" "enabled" }}
+      - prefix: https://{{ index .Values "aas-web-ui" "apirule" "host" }}
+      {{ end }}
     allowCredentials: true
+  {{ end -}}
 {{ end -}}
