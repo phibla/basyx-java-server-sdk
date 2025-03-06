@@ -13,15 +13,20 @@ mongodb:
     nameOverride: mongodb
 
 keycloak:
-  enabled: true
+  enabled: false
   postgresql:
     enabled: true
     auth:
       username: keycloak
       password: password
       database: keycloak
+  ingress:
+    enabled: false
+    ingressClassName: ""
+    hostname: keycloak.local
+    tls: false
   apirule:
-    enabled: true
+    enabled: false
     host: keycloak.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
@@ -75,7 +80,7 @@ aas-registry:
     enabled: false
     host: registry.basyx.factory-x.catena-x.net
   apirule:
-    enabled: true
+    enabled: false
     host: registry.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
@@ -109,7 +114,7 @@ sm-registry:
     enabled: false
     host: smregistry.basyx.factory-x.catena-x.net
   apirule:
-    enabled: true
+    enabled: false
     host: smregistry.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
@@ -160,7 +165,7 @@ aas-discovery:
     enabled: false
     host: discovery.basyx.factory-x.catena-x.net
   apirule:
-    enabled: true
+    enabled: false
     host: discovery.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
@@ -211,7 +216,7 @@ aas-environment:
     enabled: false
     host: enviroment.basyx.factory-x.catena-x.net
   apirule:
-    enabled: true
+    enabled: false
     host: enviroment.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
@@ -234,7 +239,7 @@ aas-web-ui:
     enabled: false
     host: ui.basyx.factory-x.catena-x.net
   apirule:
-    enabled: true
+    enabled: false
     host: ui.basyx.factory-x.catena-x.net
     methods: 
       - "GET" 
